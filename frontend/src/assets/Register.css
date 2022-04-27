@@ -1,0 +1,43 @@
+.item-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-box {
+    margin: 50px;
+    width: 50%;
+    position: relative;
+    animation-name: moveFromTop;
+    animation-duration: 2s;
+}
+
+@keyframes moveFromTop {
+    from {
+        top: -100px;
+    }
+
+    to {
+        top: 0px;
+    }
+
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
