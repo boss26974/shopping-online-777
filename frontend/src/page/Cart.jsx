@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from "react";
 import "../assets/Cart.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faPlus ,faMinus} from "@fortawesome/free-solid-svg-icons"
+
 const Cart = () => {
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")))
     const [sumCost, setSumCost] = useState(0)
@@ -37,6 +40,33 @@ const Cart = () => {
         })
         setCart(newCart)
     }
+
+    const productList = 
+        cart.map((x) => {
+            return(
+                <div className="CartProduct" key={"myCart" + x.ProductID}>
+                    <div className="CartProductDetail">
+                        <img className="CartImage" src={x.ProductImage}/>
+                        <div className="CartDetails">
+                            <span>
+                                <b>Product:</b> {x.ProductName}
+                            </span>
+                            <span>
+                                <b>Product:</b> {x.ProductCartDesc}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="CartPriceDetail">
+                        <div className="CartProductAmountContainer">
+                            <FontAwesomeIcon icon={faMinus} onClick={() => decreaseQuantity(x.ProductID)}></FontAwesomeIcon>
+                            <div className="CartProductAmount">{x.Quantity}</div>
+                            <FontAwesomeIcon icon={faPlus} onClick={() => increaseQuantity(x.ProductID)}></FontAwesomeIcon>
+                        </div>
+                        <div className="CartProductPrice">$ {x.ProductPrice}</div>
+                    </div>
+                </div>
+            )
+        })
     return (
         <div>
             <div className="CartWrapper">
@@ -46,9 +76,49 @@ const Cart = () => {
                     <span className="CartTopText">Shopping Bag({cart.length})</span>
                     <button className="CartTopButton">CHECKOUT NOW</button>
                 </div>
+                <div className="CartBottom">
+                    <div className="CartInfo">
+                        {productList}
+                    </div>
+                    <div className="CartSummary">
+                        <h1 className="CartSummaryTitle">ORDER SUMMARY</h1>
+                        <div className="CartSummaryItem">
+                            <span>Subtotal</span>
+                            <span>$ {sumCost}</span>
+                        </div>
+                        <div className="CartSummaryItem">
+                            <span>Estimated Shipping</span>
+                            <span>$ 5.90</span>
+                        </div>
+                        <div className="CartSummaryItem">
+                            <span>Shipping Discount</span>
+                            <span>$ -5.90</span>
+                        </div>
+                        <div className="CartSummaryItem">
+                            <span>Total</span>
+                            <span>$ {sumCost}</span>
+                        </div>
+                        <button className="CartButton">CHECKOUT NOW</button>
+                    </div>
+                </div>
             </div>
         </div>
     );
 }
 
-export default Cart;
+const checkCart = () => {
+
+    if(JSON.parse(localStorage.getItem("cart")) == null){
+      return (
+        <div>
+          <h1 className="CartTitle">Don't have something in your Cart</h1>
+          <button className="CartTopButton">CONTINUE SHOPPING</button>
+        </div>
+      )
+    }
+    else{
+      return <Cart />
+    }
+  }
+
+export default checkCart;

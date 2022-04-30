@@ -38,3 +38,76 @@
   flex: 3;
 }
 
+.CartProduct{
+  display: flex;
+  justify-content: space-between;
+}
+
+.CartProductDetail{
+  flex: 2;
+  display: flex;
+}
+
+.CartImage{
+  width: 200px;
+}
+
+.CartDetails{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.CartPriceDetail{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.CartProductAmountContainer{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.CartProductAmount{
+  font-size: 24px;
+  margin: 5px;
+}
+
+.CartProductPrice{
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.CartSummary{
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+}
+
+.CartSummaryTitle{
+  font-weight: 200;
+}
+
+.CartSummaryItem{
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.CartButton{
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  margin-top: 35px;
+}
