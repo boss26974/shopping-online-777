@@ -1,0 +1,40 @@
+.CartWrapper{
+    padding: 20px;
+}
+
+.CartTitle{
+    text-align: center;
+    font-weight: 300;
+}
+
+.CartTop{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.CartTopButton{
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 3px groove;
+  background-color: black;
+  color: white;
+}
+
+.CartTopText{
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.CartBottom{
+  display: flex;
+  justify-content: space-between;
+}
+
+.CartInfo{
+  flex: 3;
+}
+
